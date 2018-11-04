@@ -23,17 +23,11 @@ public class ArrayUtil {
     }
 
     public final static <T> T[] merge(T[] array1, T[] array2) {
-        boolean array1Flag = ArrayUtil.isEmpty(array1);
-        boolean array2Flag = ArrayUtil.isEmpty(array2);
-        if (array1Flag && array2Flag) {
-            return null;
-        }
-        if (array1Flag) {
-            return array2;
-        }
-        if (array2Flag) {
-            return array1;
-        }
+        boolean array1Flag = isEmpty(array1);
+        boolean array2Flag = isEmpty(array2);
+        if (array1Flag && array2Flag) return null;
+        if (array1Flag) return array2;
+        if (array2Flag) return array1;
         T[] array = Arrays.copyOf(array1, array1.length + array2.length);
         System.arraycopy(array2, 0, array, array1.length, array2.length);
         return array;
@@ -44,15 +38,15 @@ public class ArrayUtil {
     }
 
     public final static byte[] merge(byte[] array1, byte[] array2, int off, int length) {
-        if (array1 == null && array2 == null) {
+        if (array1 == null && array2 == null)
             throw new NullPointerException("array can not be null");
-        }
-        if (array2 == null) {
+
+        if (array2 == null)
             return array1;
-        }
-        if (off + length > array2.length) {
+
+        if (off + length > array2.length)
             throw new ArrayIndexOutOfBoundsException();
-        }
+
         if (array1 == null) {
             return Arrays.copyOfRange(array2, off, off + length);
         }
