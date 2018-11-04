@@ -30,6 +30,7 @@ public class ArrayUtil {
         if (array2Flag) return array1;
         T[] array = Arrays.copyOf(array1, array1.length + array2.length);
         System.arraycopy(array2, 0, array, array1.length, array2.length);
+        
         return array;
     }
 
