@@ -12,9 +12,8 @@ public class PurviewInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         Object memberInfo = request.getSession().getAttribute("memberInfo");
-        if (memberInfo == null) {
+        if (memberInfo == null)
             throw new BusinessException(ErrorCodeConstant.NOT_LOGIN, "用户未登录");
-        }
         return true;
     }
 
