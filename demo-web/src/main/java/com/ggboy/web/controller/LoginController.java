@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @ResponseBody
 public class LoginController {
-    @Autowired
+//    @Autowired
     private MemberService memberService;
     @Autowired
     private RedisWrapper redisWrapper;

@@ -16,7 +16,6 @@ public class PropertiesConfig {
     private String sequence_default_name;
     @Value("${default.pageSize}")
     private Integer default_page_size;
-
     @PostConstruct
     public void setProperties() {
         PropertiesConstant.init(default_page_size, sequence_default_name);
